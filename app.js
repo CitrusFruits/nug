@@ -1,4 +1,4 @@
-/* global Vue */
+/* global Vue, exclamations */
 (function(){
 	var CALCULATE_DURATION = 2000;
 	var CALCULATE_INTERVAL = 50;
@@ -14,7 +14,8 @@
 				{ value: 'gumballs', text: 'Gumballs', exchangeRate: 4 },
 			],
 			foodCount: 0,
-			showCount: false
+			showCount: false,
+			exclamation: ''
 		},
 		methods: {
 			calculate: function(){
@@ -22,7 +23,6 @@
 				var calcDuration = 0;
 				setTimeout(runaround, CALCULATE_INTERVAL);
 				function runaround(){
-					console.log(calcDuration, CALCULATE_DURATION);
 					if(calcDuration > CALCULATE_DURATION){
 						self.foodCount = self.food.exchangeRate * self.money;
 						return;
@@ -31,6 +31,7 @@
 					calcDuration += CALCULATE_INTERVAL;
 					setTimeout(runaround, CALCULATE_INTERVAL);
 				}
+				self.exclamation = exclamations[Math.floor(exclamations.length * Math.random())];
 				this.showCount = true;
 			}
 		}
