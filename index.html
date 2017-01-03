@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="bower_components/skeleton/css/normalize.css">
+<link rel="stylesheet" href="bower_components/skeleton/css/skeleton.css">
+<body>
+	<div id="app-2">
+		<div>How many {{food.text}} can you buy with ${{money}}?</div>
+		<select v-model="food">
+    		<option v-for="foodItem in foods" :value="foodItem">{{ foodItem.text }}</option>
+		</select>
+		<input v-model="money"></input>
+		<button v-on:click="calculate">Tell me!</button>
+		<div v-if="showCount"> That's {{foodCount}} {{food.text}}!</div> 
+	</div>
+</body>
+<script src="bower_components/vue/dist/vue.min.js"></script>
+<script src="app.js"></script>
