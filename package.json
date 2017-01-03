@@ -1,0 +1,23 @@
+{
+  "name": "nugget-calc",
+  "version": "1.0.0",
+  "description": "\"# nug\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CitrusFruits/nug.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CitrusFruits/nug/issues"
+  },
+  "homepage": "https://github.com/CitrusFruits/nug#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-inline": "^0.3.6"
+  }
+}
