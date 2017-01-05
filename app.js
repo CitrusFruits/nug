@@ -1,11 +1,11 @@
-/* global Vue, exclamations */
+/* global Vue, exclamations, calculateTexts */
 (function(){
 	var CALCULATE_DURATION = 2000;
 	var CALCULATE_INTERVAL = 50;
 	var app = new Vue({
-		el: '#app-2',
+		el: '#nug-app',
 		data: {
-			money: '40',
+			money: '5',
 			food: { value: 'chickennuggets', text: 'Chicken Nuggets', exchangeRate: 5 },
 			foods: [
 				{ value: 'chickennuggets', text: 'Chicken Nuggets', exchangeRate: 5 },
@@ -15,7 +15,8 @@
 			],
 			foodCount: 0,
 			showCount: false,
-			exclamation: ''
+			exclamation: '',
+			calculateText: calculateTexts[Math.floor(calculateTexts.length*Math.random())]
 		},
 		methods: {
 			calculate: function(){
@@ -33,6 +34,9 @@
 				}
 				self.exclamation = exclamations[Math.floor(exclamations.length * Math.random())];
 				this.showCount = true;
+			},
+			clearResult: function(){
+				this.showCount = false;
 			}
 		}
 	});

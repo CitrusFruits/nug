@@ -1,14 +1,24 @@
 <link rel="stylesheet" href="bower_components/skeleton/css/normalize.css">
-<link rel="stylesheet" href="bower_components/skeleton/css/skeleton.css">
+<!--<link rel="stylesheet" href="bower_components/skeleton/css/skeleton.css">-->
+<link rel="stylesheet" href="lib/comicneue/fonts/font.css">
+<link rel="stylesheet" href="style.css">
 <body>
-	<div id="app-2">
-		<div>How many {{food.text}} can you buy with ${{money}}?</div>
-		<select v-model="food">
-    		<option v-for="foodItem in foods" :value="foodItem">{{ foodItem.text }}</option>
-		</select>
-		<input v-model="money"></input>
-		<button v-on:click="calculate">Tell me!</button>
-		<div v-if="showCount"> {{exclamation}}, that's {{foodCount}} {{food.text}}!</div> 
+	<div class="nug-app" id="nug-app">
+		<div class="nug-title">How many <span class="nug-title-food">{{food.text}}</span> can I buy with <span class="nug-title-money">${{money}}</span>?</div>
+		<div class="nug-form">
+			<label for="nug-cashinput">I have</label><br>
+			<span class="nug-cashinput-currency">$</span>
+			<input class="nug-cashinput" id="nug-cashinput" type="number" v-on:change="clearResult" v-model="money"></input><br>
+			<label for="nug-foodselect">and I want</label><br>
+			<select class="nug-foodselect" id="nug-foodselect" v-on:change="clearResult" v-model="food">
+				<option v-for="foodItem in foods" :value="foodItem">{{ foodItem.text }}</option>
+			</select>
+			<br>
+			<br>
+			<button class="nug-calculatebutton" v-on:click="calculate">{{calculateText}}!</button>
+		</div>
+		<br>
+		<div class="nug-result" v-if="showCount"> {{exclamation}}, that's {{foodCount}} {{food.text}}!</div> 
 	</div>
 </body>
 <script src="bower_components/vue/dist/vue.min.js"></script>
