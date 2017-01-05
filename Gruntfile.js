@@ -8,8 +8,8 @@ module.exports = function(grunt) {
 				cssmin: true
 			},
 			dist: {
-				src: 'index.html',
-				dest: 'dist/index.html'
+				src: 'dev.html',
+				dest: 'index.html'
 			}
 		}
 	});
